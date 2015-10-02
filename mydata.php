@@ -92,20 +92,21 @@
 		for($j = 0; $j<$num_groups;$j++){
 			$g_row = mysqli_fetch_assoc($groups);
 			echo "<strong><br />groups".($j+1).": </strong>";
-			echo"<li><a href=".stripslashes($g_row['group_name'])."><i class='fa fa-envelope-o fa-medium'></i>give back a book</a></li>";
+			echo "<li><a href=\"groups.php?groupid=".stripslashes($g_row['group_id'])."\"><i class='fa fa-envelope-o fa-medium'></i>give back a book</a></li>";
 			echo "<br />";
 		}
 		//显示用户一共参与了多少个活动
 		for($k = 0; $k<$num_activitys;$k++){
 			$a_row = mysqli_fetch_assoc($activitys);
 			echo "<strong><br />activitys".($k+1).": </strong>";
-			echo"<li><a href=".stripslashes($a_row['activity_name'])."><i class='fa fa-envelope-o fa-medium'></i><strong><br />activitys".($k+1).": </strong></a></li>";
+			echo"<li><a href=\"ground.php?activity_id=".stripslashes($a_row['activity_id'])."\"><i class='fa fa-envelope-o fa-medium'></i><strong><br />activitys".($k+1).": </strong></a></li>";
 			echo stripslashes($a_row['activity_name']);
 			echo "<br />";
 		}
 
 	}
-
+	echo "<a href=\"mydata_change.php?user_id=".$userid."\">修改个人信息</a>";
+	
 	mysqli_free_result($result);
     mysqli_close($db);
 ?>

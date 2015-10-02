@@ -45,9 +45,12 @@
 				<h1 class="templatemo-header">My Own Library</h1>
 
 <?php
+    $userid = trim($_GET['userid']);
 	if(!get_magic_quotes_gpc()){
 		$userid = addslashes($userid);	
 	}
+	$userid = "441867138@qq.com";
+	echo $userid;
 	@ $db = new mysqli('localhost', 'root','123','mutu');
 	if(mysqli_connect_errno()){
 		echo'Error: we could not connect to the database, please try again later.';
@@ -65,13 +68,15 @@
 		echo "<table><div id= \"table\">";
 		echo "<p><strong>".($i+1)." : ";
 		echo "<strong><br />activitys".($i+1).": </strong>";
-		echo"<li><a href=".stripslashes($row['activity_name'])."><i class='fa fa-envelope-o fa-medium'></i><strong><br />activitys".($i+1).": </strong></a></li>";
+		echo"<li><a href=\"ground_detail.php?activity_id=".htmlspecialchars(stripslashes($row['activity_id']))."&user_id=".htmlspecialchars($userid)."\" ><i class='fa fa-envelope-o fa-medium'></i><strong><br />activitys".($i+1).": </strong></a></li>";
 			echo "<br />";
 		echo "</div></table>";
 		echo "</p>";
 		echo "<br />";
 	}
-
+	
+	
+	echo"<a href=\"new_activity.html\">创建活动</a>";
 	mysqli_free_result($activitys);
     mysqli_close($db);
 ?>

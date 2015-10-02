@@ -4,13 +4,23 @@
 
 <?php
 	//insert a book
-	$picture = trim($_POST['picture']);
-	$name = trim($_POST['name']);
-	$description = trim($_POST['description']);
-	$old_password = trim($_POST['old_password']);
-	$new_password = trim($_POST['new_password']);
-	$new_password2 = trim($_POST['new_password2']);
-	$message = trim($_POST['message']);
+	$user_id = trim($_GET['user_id']);
+	$picture = trim($_GET['user_picture']);
+	$name = trim($_GET['user_name']);
+	$description = trim($_GET['user_description']);
+	$old_password = trim($_GET['old_password']);
+	$new_password = trim($_GET['new_password']);
+	$new_password2 = trim($_GET['new_password2']);
+	$message = trim($_GET['user_message']);
+	
+	echo $name;
+	echo $user_id;
+	echo $message;
+	
+	if(!$name){
+		echo'you have not entered name. Please go back and try again.';
+		exit;
+	}
 	
 	if(!get_magic_quotes_gpc()){
 		$name = addslashes($name);	
@@ -20,39 +30,43 @@
 		$new_password2 = addslashes($new_password2);
 		$message = addslashes($message);
 	}
-	@ $db = new mysqli('localhost', 'root','123','project');
+	@ $db = new mysqli('localhost', 'root','123','mutu');
 	if(mysqli_connect_errno()){
 		echo'Error: we could not connect to the database, please try again later.';
 		exit;
 	}
 	
-	$query1 = "select * from books where isbn = '" .$isbn."'";
-	$result1 = mysqli_query($db,$query1);
-	$num_results1 = mysqli_num_rows($result1);
-	$row1 = mysqli_fetch_assoc($result1);
-	if($num_results1>=1){
-		if(htmlspecialchars(stripslashes($row1['bookname']))!=$bookname
-		||htmlspecialchars(stripslashes($row1['booktype']))!=$booktype
-		||htmlspecialchars(stripslashes($row1['publish_house'])!=$publish_house)
-		||htmlspecialchars(stripslashes($row1['author'])!=$author)
-		||htmlspecialchars(stripslashes($row1['price'])!=$price)){
-			echo 'Maybe you enter the wrong book detail, please check the book massage and enter again';
-			exit;
-		}
-		$query2 = "update books set number_now = number_now + ".$num."  where isbn = '".$isbn."'";
-		$result2 = mysqli_query($db,$query2);
-		$query3 = "update books set number_total = number_total + ".$num."  where isbn = '".$isbn."'";
-		$result3 = mysqli_query($db,$query3);
-		echo "update successfully";
-	}
-	else{
-		$query = "insert into books values( '".$isbn."','".$booktype."','".$bookname."','".$publish_house."',".$publish_year.",'".$author."',".$price.",".$num.",".$num.")";
+		$query = "update user set user_name = '".$name."' where user_id = '".$user_id."'";
 		$result = mysqli_query($db,$query);
-		echo 'Insert successfully';
-	}
-	mysqli_free_result($result1);
+		if($old_password){
+			$query_pass = "select * from user where user_id = '".$user_id."' and user_passward= '".$old_password."'";
+			$result_pass = mysqli_query($db,$query_pass);
+			$num_results = mysqli_num_rows($result_pass);
+			if($num_results>0){
+				if($new_password = $new_password2){
+					$query_changep = "update user set user_passward = '".$new_password."' where user_id = '".$user_id."'";
+					$result_changep = mysqli_query($db,$query_changep);
+				}
+				else{
+					echo"the two newpassword isn't same!!!!!!!";	
+					exit;
+				}
+			
+			}
+			
+		else{
+			echo "the user isn't exist or the password is wrong!!!";
+			exit;
+			}
+		}
+		if($description){
+			$query3 = "update user set user_description = '".$description."' where user_id = '".$user_id."'";
+			$result3 = mysqli_query($db,$query3);
+		}
+		if($message){
+			$query4 = "update user set user_message = '".$message."' where user_id = '".$user_id."'";
+			$result4 = mysqli_query($db,$query4);
+		}
+		echo "update successfully";
     mysqli_close($db);
 ?>
-
-</body>
-</html>

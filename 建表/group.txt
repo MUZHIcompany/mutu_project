@@ -1,0 +1,32 @@
+create table a_group(
+group_id varchar(20),
+group_name varchar(50),
+group_organizer varchar(20),
+group_describe text,
+group_remark varchar(100),
+group_num_total  numeric(5,0),
+group_num_now numeric(5,0),
+group_picture longblob,
+PRIMARY KEY(group_id));
+
+
+insert into a_group values(
+'g_id',
+'g_name',
+'g_organizer',
+'g_describe',
+'g_remark',
+'g_num_total',
+'g_num_now',
+'g_picture');
+
+
+insert into a_group values(
+'g2_id',
+'g2_name',
+'g2_organizer',
+'g2_describe',
+'g2_remark',
+'g2_num_total',
+'g2_num_now',
+'g2_picture');

@@ -1,0 +1,25 @@
+create table user(
+user_id varchar(20) not null,
+user_name varchar(20),
+user_passward varchar(20),
+user_picture longblob,
+user_description varchar(20),
+user_message text,
+PRIMARY KEY (user_id));
+
+insert into user values(
+'441867138@qq.com', 
+'zhengtianji',
+'zhengtianji',
+'picture1',
+'description112212121',
+'message89183');
+
+
+insert into user values(
+'222_441867138@qq.com', 
+'222_zhengtianji',
+'222_zhengtianji',
+'222_picture1',
+'222_description112212121',
+'222_message89183');

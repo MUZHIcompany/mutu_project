@@ -1,0 +1,11 @@
+create table user_group(
+group_id varchar(20),
+user_id varchar(20),
+foreign key (user_id) references user(user_id),
+foreign key (group_id) references a_group(group_id));
+
+
+
+insert into user_group values(
+'g_id',
+'222_441867138@qq.com');

@@ -1,10 +1,24 @@
-
+<html>
+<body>			<tr>
+                    <td align="center">
+						<form name="input" action="search.php" method="get" >
+						<input type="image" src="images/search.png" />
+						<input type="text" name="searchContents" />
+						</form>
+                        </td>
+					</tr>
+					
 <div class="header">
+
 	<div class="container">
-		<div class="header-bottom">
+  	  <div class="header-bottom">
+
 		<div class="top-nav">
 			<span class="menu"><img src="images/menu.png" alt=""> </span>
 				<ul>
+                
+          
+                    
                 	<li>
 					<a href="ground.php"   class="hvr-bounce-to-top">
 					<img src="tab栏icon/icon广场.png" alt="" witdh="50" height="50" >
@@ -32,16 +46,11 @@
 					<img src="tab栏icon/icon我的.png" alt="" witdh="50" height="50" >
 					<br />我的 </a>
 					</li>
-					<li>
-					<br />
-					<form name="input" action="search.php" method="get" >
-					<input type="image" src="images/search.png" />
-					<input type="text" name="searchContents" />
-					</form>
-					</li>
 					<div class="clearfix"> </div>
 				    </ul>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
 </div>
+</body>
+</html>

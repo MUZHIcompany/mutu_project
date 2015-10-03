@@ -8,7 +8,10 @@
 </html>
 
 <?php
-	$user_id = trim($_GET['user_id']);
+	session_start();
+	include_once("head.html");
+	
+	$user_id = $_SESSION['user_id'];
 	
 	@ $db = new mysqli('localhost', 'root','123','mutu');
 	if(mysqli_connect_errno()){
@@ -41,9 +44,6 @@
        echo"  <input name = \"submit\" type = \"submit\" value = \"insert\" class = \"btn btn-warning\"/>";
        echo" </form>";
 	echo"<!--<a href=\"products.html\" class=\"btn btn-warning\">View Products</a>-->";			
-
-	echo"<img src=\"images/wooden-desk.jpg\" alt=\"Wooden Desk\" class=\"img-thumbnail\">";
-
 	mysqli_free_result($result);
     mysqli_close($db);
 ?>

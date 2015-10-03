@@ -3,6 +3,11 @@
 <body>
 
 <?php
+	session_start();
+	include_once("head.html");
+    include_once( "Menu.php" ); 
+	include_once( "config.php" );
+    include_once( "class.php" );
 	//insert a book
 	$user_id = trim($_GET['user_id']);
 	$picture = trim($_GET['user_picture']);

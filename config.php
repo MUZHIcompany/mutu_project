@@ -1,8 +1,8 @@
 <?php
- $guest = "guest";
- $guestPassword = "123456";
+ $guest = "root";
+ $guestPassword = "123";
  $host = "127.0.0.1";
  $administrator = "root";
- $administratorPassword = "3613829";
- $BMS = "BMS";
+ $administratorPassword = "123";
+ $BMS = "mutu";
 ?>

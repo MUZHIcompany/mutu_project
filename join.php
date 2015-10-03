@@ -15,6 +15,7 @@
 <div class="container">
     <form role="form" id="timecheck" action="/after_join.php" method="post">
 <?php
+		include_once( "Menu.php" ); 
 	    $_SESSION["uid"]=1;
 	    $_SESSION["act_id"]=1;
 	    $servername="localhost";

@@ -1,6 +1,12 @@
 <HTML>
 <BODY>
 <?php
+  session_start();
+  include_once("head.html");
+  include_once( "Menu.php" ); 
+  include_once( "config.php" );
+  include_once( "class.php" );
+  
   $servername="localhost";
   $username="root";
   $password="";

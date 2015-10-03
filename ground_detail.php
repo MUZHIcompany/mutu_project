@@ -1,15 +1,16 @@
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <?php
-	
-	
-	
-	header("Content-Type: text/html; charset=gb2312");
+	session_start();
+	header("Content-Type:text/html;charset=utf8"); 
+	include_once("head.html");
+    include_once( "Menu.php" ); 
+	include_once( "config.php" );
+    include_once( "class.php" );	
 	$activity_id  = trim($_GET['activity_id']);
-	$user_id = trim($_GET['user_id']);
-	echo "hello worldÎÒµÄ</br>";
+	$user_id = $_SESSION['user_id'];
 	echo $activity_id;
 	echo $user_id;
 	@ $db = new mysqli('localhost', 'root','123','mutu');
@@ -31,30 +32,31 @@
 	}
 	
 	
-//ÏÔÊ¾»î¶¯ÏêÏ¸ĞÅÏ¢
+//ï¿½ï¿½Ê¾ï¿½î¶¯ï¿½ï¿½Ï¸ï¿½ï¿½Ï¢
 		$row = mysqli_fetch_assoc($details);
 		echo "<table><div id= \"table\">";
-		echo "»î¶¯id";
+		echo "æ´»åŠ¨id";
 		echo htmlspecialchars(stripslashes($row['activity_id']));
-		echo "<br />»î¶¯Ãû³Æ: </strong>";
+		echo "<br />æ´»åŠ¨åç§°: </strong>";
 		echo stripslashes($row['activity_name']);
-		echo "<strong><br />»î¶¯·¢ÆğÈË: </strong>";
+		echo "<strong><br />æ´»åŠ¨å‘èµ·äºº: </strong>";
 		echo stripslashes($row['activity_organizer']);
-		echo "<strong><br />»î¶¯¼ò½é: </strong>";
+		echo "<strong><br />æ´»åŠ¨ç®€ä»‹: </strong>";
 		echo stripslashes($row['activity_describe']);
-		echo "<strong><br />±¸×¢: </strong>";
+		echo "<strong><br />å¤‡æ³¨: </strong>";
 		echo stripslashes($row['activity_remark']);
-		echo "<strong><br />×î´ó»î¶¯ÈËÊı: </strong>";
+		echo "<strong><br />æœ€å¤§æ´»åŠ¨äººæ•°: </strong>";
 		echo stripslashes($row['activity_num_total']);
-		echo "<strong><br />ÏÖÔÚ»î¶¯ÈËÊı: </strong>";
+		echo "<strong><br />ç°åœ¨å‚ä¸äººæ•°: </strong>";
 		echo stripslashes($row['activity_num_now']);
-		echo "<strong><br />»î¶¯Í·Ïñ: </strong>";
-		echo"<div id=\"localImag\"><img id=\"preview\" src = ".stripslashes($row['activity_picture'])." width=40 height=40 style=\"diplay:none\" /></div>";
+		echo "<strong><br />æ´»åŠ¨å¤´åƒ: </strong>";
+		echo"<div id=\"localImag\"><img id=\"preview\" src = img/".stripslashes($row['activity_picture']).".jpg width=40 height=40 style=\"diplay:none\" /></div>";
 		echo "</div></table>";
 		echo "</p>";
 		echo "<br />";
-		echo"<a href=\"time.php\">Á¢¼´¹ºÂò</a>";
-		echo "<a href=ground.php?userid=".$user_id.">·µ»Ø</a>";
+		echo"<a href=\"time_new.php\">ç«‹å³è´­ä¹°</a>";
+		echo"</br>";
+		echo "<a href=ground.php?userid=".$user_id.">è¿”å›</a>";
 
 ?>
 

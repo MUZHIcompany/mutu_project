@@ -4,39 +4,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>登陆</title>
+<title>登陆</title>	
 <?php include_once("head.html") ?>
 </head>
 <body>
-
-<form action="login.php" method = "post">
-<table border="0" style="position:relative;left:41%;" >
-<tr><th>用户名：</th><td><input name="userID" type="text" required="required" ></td></tr>
-<tr><th align="left">密码：</th><td><input name="password" type="password" required="required" ></td></tr>
-<tr><td colspan="2" align="center"><input name="submit" type="submit" value="登陆"></td></tr>
-</table>
-</form>
-
 <?php 
 
 include_once( "config.php" );
 include_once( "class.php" );
-include_once( "Menu.php" ); 
+//include_once( "Menu.php" ); 
 
 $db = new connectDB( $host, $guest, $guestPassword );
 
-if( $_POST['userID'] )
+if( $_POST['user_id'] )
 {
-	$id = $_POST['userID'];
+	$id = $_POST['user_id'];
 	$pass = $_POST['password'];
 	$db->selectDB($BMS);
-	$sql = "select * from users where userID = '{$id}' and password = '{$pass}'";
+	$sql = "select * from user where user_id = '{$id}' and user_password = '{$pass}'";
 	if( $row = $db->fetchOneRow($sql) )
 	{
-		$_SESSION['userID'] = $row['userID'];
-		$_SESSION['name'] = $row['name'];
-		$url = "mydata.php"; 
-		echo "<p><script>alert('登陆成功！欢迎 {$row['name']}');</script></p>";
+		$_SESSION['user_id'] = $row['user_id'];
+		$_SESSION['user_name'] = $row['user_name'];
+		$_SESSION['user_password'] = $row['user_password'];
+		$_SESSION['user_picture'] = $row['user_picture'];
+		$_SESSION['user_description'] = $row['user_description'];
+		$_SESSION['user_message'] = $row['user_message'];
+		
+		$url = "ground.php"; 
+		echo "<p><script>alert('登陆成功！欢迎 {$row['user_name']}');</script></p>";
 	}
 	else
 	{
@@ -50,6 +46,5 @@ if( $_POST['userID'] )
 }
 
 ?>
-
 </body>
 </html>

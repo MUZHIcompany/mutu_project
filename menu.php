@@ -5,9 +5,7 @@
 		<div class="top-nav">
 			<span class="menu"><img src="images/menu.png" alt=""> </span>
 				<ul>
-					<li ><a href="front.php" class="color"><i class="glyphicon glyphicon-home"></i>  </a> </li>
-					<!-- back to home page -->
-					<li>
+                	<li>
 					<a href="ground.php"   class="hvr-bounce-to-top">
 					<img src="tab栏icon/icon广场.png" alt="" witdh="50" height="50" >
 					<br />广场</a>

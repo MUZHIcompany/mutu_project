@@ -1,10 +1,13 @@
 
 
 <?php
-include_once( "Menu.php" ); 
-	//search a book
-	//$groupid = trim($_POST['groupid']);
-	$groupid = 'g3_id';
+	session_start();
+	include_once("head.html");
+    include_once( "Menu.php" ); 
+	include_once( "config.php" );
+    include_once( "class.php" );
+	$groupid = trim($_GET['groupid']);
+	
 	if(!get_magic_quotes_gpc()){
 		$groupid = addslashes($groupid);	
 	}

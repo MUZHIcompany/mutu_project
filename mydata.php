@@ -53,7 +53,7 @@
 		for($j = 0; $j<$num_groups;$j++){
 			$g_row = mysqli_fetch_assoc($groups);
 			echo "<strong><br />groups".($j+1).": </strong>";
-			echo "<li><a href=\"groups.php?groupid=".stripslashes($g_row['group_id'])."\"><i class='fa fa-envelope-o fa-medium'></i>give back a book</a></li>";
+			echo "<li><a href=\"groups.php?groupid=".stripslashes($g_row['group_id'])."\"><i class='fa fa-envelope-o fa-medium'></i>groups".($j+1)."</li></a>";
 			echo "<br />";
 		}
 		//显示用户一共参与了多少个活动

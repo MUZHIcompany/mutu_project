@@ -50,11 +50,11 @@
 		echo "<strong><br />现在参与人数: </strong>";
 		echo stripslashes($row['activity_num_now']);
 		echo "<strong><br />活动头像: </strong>";
-		echo"<div id=\"localImag\"><img id=\"preview\" src = img/".stripslashes($row['activity_picture']).".jpg width=40 height=40 style=\"diplay:none\" /></div>";
+		echo"<div id=\"localImag\"><img id=\"preview\" src = images/".stripslashes($row['activity_picture']).".jpg width=40 height=40 style=\"diplay:none\" /></div>";
 		echo "</div></table>";
 		echo "</p>";
 		echo "<br />";
-		echo"<a href=\"time_new.php\">立即购买</a>";
+		echo"<a href=\"time_new.html\">立即购买</a>";
 		echo"</br>";
 		echo "<a href=ground.php?userid=".$user_id.">返回</a>";
 

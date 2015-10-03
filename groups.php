@@ -38,7 +38,7 @@
 		echo "<strong><br />现在组员数: </strong>";
 		echo stripslashes($row['group_num_now']);
 		echo "<strong><br />小组头像: </strong>";
-		echo"<div id=\"localImag\"><img id=\"preview\" src = ".stripslashes($row['group_picture'])." width=40 height=40 style=\"diplay:none\" /></div>";
+		echo"<div id=\"localImag\"><img id=\"preview\" src = images/".stripslashes($row['group_picture']).".jpg width=40 height=40 style=\"diplay:none\" /></div>";
 		echo "</div></table>";
 		echo "</p>";
 		echo "<br />";

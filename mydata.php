@@ -41,7 +41,7 @@
 		echo "<br />姓名: </strong>";
 		echo stripslashes($row['user_name']);
 		echo "<strong><br />user_picture: </strong>";
-		echo stripslashes($row['user_picture']);
+		echo"<div id=\"localImag\"><img id=\"preview\" src = images/".stripslashes($row['user_picture']).".jpg width=40 height=40 style=\"diplay:none\" /></div>";
 		echo "<strong><br />user_description: </strong>";
 		echo stripslashes($row['user_description']);
 		echo "<strong><br />user_message: </strong>";
@@ -60,7 +60,13 @@
 		for($k = 0; $k<$num_activitys;$k++){
 			$a_row = mysqli_fetch_assoc($activitys);
 			echo "<strong><br />activitys".($k+1).": </strong>";
-			echo"<li><a href=\"ground.php?activity_id=".stripslashes($a_row['activity_id'])."\"><i class='fa fa-envelope-o fa-medium'></i><strong><br />activitys".($k+1).": </strong></a></li>";
+			echo"";
+			echo"<li>
+			<a href=\"ground_detail.php?activity_id=".stripslashes($a_row['activity_id'])."\"><i class='fa fa-envelope-o fa-medium'></i>
+			<div id=\"localImag\"><img id=\"preview\" src = images/".stripslashes($a_row['activity_picture']).".jpg width=40 height=40 style=\"diplay:none\" /></div>
+			<strong><br />activitys".($k+1).": </strong>
+				</a>
+			</li>";
 			echo stripslashes($a_row['activity_name']);
 			echo "<br />";
 		}

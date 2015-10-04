@@ -44,16 +44,21 @@
 		echo "<tr><th><strong>user_message: </strong></th>";
 		echo "<th>".stripslashes($row['user_message'])."</th></tr>";
 		echo "</table></div>";
-		echo "</p>";
-		echo "<br />";
+		echo "</br>";	
 		//显示用户一共参与了多少个小
 		echo "<div id=\"table\"><table>我的小组</table></div>";
+		echo "<div id=\"table\"><table>";
 		for($j = 0; $j<$num_groups;$j++){
 			$g_row = mysqli_fetch_assoc($groups);
 			echo "<table><div id=\"table\"><strong><br />groups".($j+1).": </strong>";
 			echo "<li><a href=\"groups.php?groupid=".stripslashes($g_row['group_id'])."\"><i class='fa fa-envelope-o fa-medium'></i>groups".($j+1)."</li></a></div></table>";
 			echo "<br />";
 		}
+		if($num_groups==0){
+			echo "</br></br><strong>没有参加过的小组</strong></br></br></br>";
+		}
+		echo"</table></div>";
+		echo"</br>";
 		//显示用户一共参与了多少个活动
 		echo "<div id=\"table\"><table>我的活动</table></div>";
 		echo "<div id=\"table\"><table>";
@@ -68,6 +73,9 @@
 			</li>";
 			echo stripslashes($a_row['activity_name']);
 		echo"</th>";
+		}
+		if($num_activitys==0){
+			echo "</br></br><strong>没有参加过的活动</strong></br></br></br>";
 		}
 	echo "<br /></table></div>";
 	echo "<div id=\"table\"><table><div class=\"btn btn-lg\"><a href=\"mydata_change.php?user_id=".$userid."\">修改个人信息</a></br></div></table></div>";

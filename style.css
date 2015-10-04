@@ -59,10 +59,19 @@ body {
 	padding: 30px;
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
  	border-collapse: collapse;
- 	width: 50em;
+ 	width: 1348%;
  	border: 1px solid #666;
 }
 
+.picture{
+	width: 1348%;
+	background:#1585ED;
+	/*background-position:center;
+	background-position:top;
+	*/padding: 30px;
+    border: 1px solid #666;
+	
+}
 
 #main_box {
 	background: #fff;
